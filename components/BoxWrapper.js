@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-const CardWrapper = ({to, children, className, style, onMouseEnter, onMouseLeave, href}) =>{
+const BoxWrapper = ({to, children, className, style, onMouseEnter, onMouseLeave, href}) =>{
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -15,11 +15,12 @@ const CardWrapper = ({to, children, className, style, onMouseEnter, onMouseLeave
             onMouseEnter={onMouseEnter} 
             onMouseLeave={onMouseLeave} 
             onClick={href || to ? handleClick : undefined} 
-            className={`rounded-lg p-4 m-1 bg-white ${className} ${href || to ? 'hover:cursor-pointer' : ''}`} 
+            className={`${className} p-4 m-1 bg-white ${href || to ? 'hover:cursor-pointer' : ''}`} 
             style={style}
         >
             {children}
         </div>
     );
 }
-export default CardWrapper;
+
+export default BoxWrapper;
