@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-const CardWrapper = ({to, children, className, style, onMouseEnter, onMouseLeave, href}) =>{
+const CardWrapper = ({itemRef, to, children, className, style, onMouseEnter, onMouseLeave, href}) =>{
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -9,9 +9,10 @@ const CardWrapper = ({to, children, className, style, onMouseEnter, onMouseLeave
             navigate(to);
         }
     };
-    
+
     return(
-        <div 
+        <div
+            ref={itemRef}
             onMouseEnter={onMouseEnter} 
             onMouseLeave={onMouseLeave} 
             onClick={href || to ? handleClick : undefined} 
